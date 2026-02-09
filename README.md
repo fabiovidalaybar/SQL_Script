@@ -1,2 +1,2 @@
 # SQL_Script
-Consultas y procedimientos para bases de datos relacionales
+Bienvenido a mi repositorio de documentación personal de SQL. Este espacio está dedicado a consolidar conocimientos sobre el lenguaje de consulta estructurado, cubriendo desde la definición de datos hasta consultas complejas.
