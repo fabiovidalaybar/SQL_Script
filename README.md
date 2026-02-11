@@ -58,4 +58,7 @@ WHERE id = 1;
 ```
 
 ### 🔍 Filtrado y Control de Resultados
-| a | b | c |
+| Columna 1 | Columna 2 | Columna 3 |
+|-----------|-----------|-----------|
+| Dato A    | Dato B    | Dato C    |
+| Dato D    | Dato E    | Dato F    |
