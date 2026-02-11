@@ -18,3 +18,41 @@ CREATE TABLE colaboradores (
     fecha_ingreso DATE
 );
 ```
+3. Eliminar una Tabla
+Borra una tabla de forma permanente, incluyendo toda su estructura y los datos que contenía. Se debe usar con precaución.
+```powershell
+DROP TABLE colaboradores;
+```
+
+# ✍️ Manipulación de Datos (DML)
+4. Insertar Registros
+Permite agregar nuevas filas de información a una tabla existente. Es importante que los valores coincidan con el orden y tipo de dato de las columnas.
+```powershell
+INSERT INTO colaboradores (nombre, cargo, fecha_ingreso) 
+VALUES ('Juan Pérez', 'Administrador de Sistemas', '2024-01-15');
+```
+
+# 5. Consultar Datos (Básico)
+Recupera información de una tabla. El uso del asterisco * indica que queremos traer todas las columnas disponibles
+```powershell
+SELECT * FROM colaboradores;
+```
+
+6. Consultar Columnas Específicas
+En lugar de traer toda la tabla, podemos solicitar solo los campos que necesitamos para optimizar la consulta.
+```powershell
+SELECT nombre, cargo FROM colaboradores;
+```
+7. Actualizar Datos
+Modifica los valores de registros que ya existen. Importante: Siempre se debe acompañar de una condición (WHERE) para no afectar a todos los registros de la tabla.
+```powershell
+UPDATE colaboradores 
+SET cargo = 'Senior Global Admin' 
+WHERE id = 1;
+```
+8. Eliminar Registros
+Borra filas específicas de una tabla según la condición indicada.
+```powershell
+DELETE FROM colaboradores 
+WHERE id = 1;
+```
