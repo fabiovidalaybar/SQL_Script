@@ -24,7 +24,7 @@ Borra una tabla de forma permanente, incluyendo toda su estructura y los datos q
 DROP TABLE colaboradores;
 ```
 
-# ✍️ Manipulación de Datos (DML)
+### ✍️ Manipulación de Datos (DML)
 4. Insertar Registros
 Permite agregar nuevas filas de información a una tabla existente. Es importante que los valores coincidan con el orden y tipo de dato de las columnas.
 ```powershell
@@ -32,7 +32,7 @@ INSERT INTO colaboradores (nombre, cargo, fecha_ingreso)
 VALUES ('Juan Pérez', 'Administrador de Sistemas', '2024-01-15');
 ```
 
-# 5. Consultar Datos (Básico)
+### 5. Consultar Datos (Básico)
 Recupera información de una tabla. El uso del asterisco * indica que queremos traer todas las columnas disponibles
 ```powershell
 SELECT * FROM colaboradores;
