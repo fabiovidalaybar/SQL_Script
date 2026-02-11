@@ -36,6 +36,30 @@ CONVERT TO CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 ```
 
+🛡️ Tabla Comparativa de Constraints
+Restricciones de Integridad (Constraints)
+Las restricciones o constraints son las reglas fundamentales que definimos en las columnas de nuestras tablas para garantizar que la información sea precisa, confiable y coherente.
+Podemos imaginarlas como las validaciones de un formulario: su función es actuar como una barrera de seguridad que impide la entrada de "datos basura" (información incompleta, registros duplicados o valores fuera de lógica). Es una buena práctica aplicarlas en campos críticos para el negocio, como identificadores o correos electrónicos, manteniendo la flexibilidad en campos opcionales donde la información no es estrictamente obligatoria.
+
+| Constraint | Función Principal | Ejemplo de Uso | Aplicación Común |
+| :--- | :--- | :--- | :--- |
+| **NOT NULL** | Prohíbe valores vacíos en la columna. | `nombre VARCHAR(50) NOT NULL` | Nombres, RUT, contraseñas. |
+| **UNIQUE** | Impide que existan dos valores iguales. | `email VARCHAR(100) UNIQUE` | Correos, nombres de usuario. |
+| **PRIMARY KEY** | Identificador único de cada registro. | `id INT PRIMARY KEY` | IDs de tablas, códigos internos. |
+| **FOREIGN KEY** | Relaciona una tabla con otra. | `REFERENCES clientes(id)` | Conectar pedidos con clientes. |
+| **DEFAULT** | Asigna un valor si no se ingresa uno. | `estado VARCHAR(20) DEFAULT 'Activo'` | Fechas, estados de cuenta. |
+| **CHECK** | Valida una condición lógica específica. | `CHECK (edad >= 18)` | Precios, rangos de edad, sueldos. |
+
+Ejemplo de aplicación de Constraints
+```sql
+CREATE TABLE servicios_microsoft (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_servicio VARCHAR(100) NOT NULL,
+    licencia_id VARCHAR(50) UNIQUE,
+    costo DECIMAL(10,2) CHECK (costo > 0),
+    estado VARCHAR(20) DEFAULT 'Operativo'
+);
+```
 Gestión de Tablas
 Crear una Tabla
 Define la estructura de una entidad, especificando los nombres de columna, el tipo de dato que almacenarán y sus restricciones (como llaves primarias).
