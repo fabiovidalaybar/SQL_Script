@@ -14,11 +14,28 @@ Modificar Propiedades de la Base de Datos Se utiliza principalmente para cambiar
 ALTER DATABASE nombre_de_tu_bd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 - **📝 Nota sobre el Renombrado de Bases de Datos
-Importante: En MySQL no existe una sentencia directa como RENAME DATABASE. Para cambiar el nombre de una base de datos, la práctica estándar es exportar los datos (dump), crear una nueva base de datos con el nombre deseado e importar los datos en ella. Esto se hace para proteger la integridad de los esquemas y las conexiones activas.
-Eliminar una Base de Datos Borra la base de datos completa y todo su contenido de forma irreversible.**
+Importante: En MySQL no existe una sentencia directa como RENAME DATABASE. Para cambiar el nombre de una base de datos, la práctica estándar es exportar los datos (dump), crear una nueva base de datos con el nombre deseado e importar los datos en ella. Esto se hace para proteger la integridad de los esquemas y las conexiones activas.**
+
+Eliminar una Base de Datos Borra la base de datos completa y todo su contenido de forma irreversible.
 ```sql
-DROP DATABASE nombre_de_tu_bd;
+DROP DATABASE nombre_de_tu_bd
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
 ```
+- **CHARACTER SET y COLLATE: ¿Qué hace?: Define qué "abecedario" usa la base de datos (utf8mb4 permite emojis y caracteres especiales) y cómo se comparan (COLLATE define si "A" es igual a "a").**
+En caso de haber creado la BD sin CHARACTER SET y COLLATE se puede modificar con la tabla con la siguiente sentencia:
+```sql
+ALTER DATABASE nombre_de_tu_bd 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
+```
+Si solo una tabla necesita un soporte de caracteres especial, se puede ajustar individualmente sin afectar al resto de la base de datos.
+```sql
+ALTER TABLE usuarios 
+CONVERT TO CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
+```
+
 Gestión de Tablas
 Crear una Tabla
 Define la estructura de una entidad, especificando los nombres de columna, el tipo de dato que almacenarán y sus restricciones (como llaves primarias).
@@ -69,25 +86,25 @@ ALTER TABLE usuarios CHANGE COLUMN nombre nombre_completo VARCHAR(150);
 ```sql
 ALTER TABLE usuarios DROP COLUMN correo;
 ```
-### 5. Consultar Datos (Básico)
+### Consultar Datos (Básico)
 Recupera información de una tabla. El uso del asterisco * indica que queremos traer todas las columnas disponibles
 ```sql
 SELECT * FROM colaboradores;
 ```
 
-6. Consultar Columnas Específicas
+Consultar Columnas Específicas
 En lugar de traer toda la tabla, podemos solicitar solo los campos que necesitamos para optimizar la consulta.
 ```sql
 SELECT nombre, cargo FROM colaboradores;
 ```
-7. Actualizar Datos
+Actualizar Datos
 Modifica los valores de registros que ya existen. Importante: Siempre se debe acompañar de una condición (WHERE) para no afectar a todos los registros de la tabla.
 ```sql
 UPDATE colaboradores 
 SET cargo = 'Senior Global Admin' 
 WHERE id = 1;
 ```
-8. Eliminar Registros
+Eliminar Registros
 Borra filas específicas de una tabla según la condición indicada.
 ```sql
 DELETE FROM colaboradores 
@@ -118,7 +135,7 @@ Esta tabla resume las formas más comunes de filtrar datos en SQL para obtener r
 | **Múltiple** | Combina dos o más condiciones obligatorias. | `WHERE cargo = 'Admin' AND id > 5` |
 
 Ejemplo**
-18. Uso de IN (Filtro por Lista)
+Uso de IN (Filtro por Lista)
 Es mucho más eficiente que usar muchos OR. Se usa para buscar registros que coincidan con cualquiera de los elementos de una lista.
 ```sql
 -- Selecciona colaboradores que trabajen en cualquiera de estas empresas
