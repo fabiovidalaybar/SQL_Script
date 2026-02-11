@@ -67,9 +67,7 @@ WHERE id = 1;
 | **`>=`** | Mayor o igual que | `WHERE fecha >= '2026-01-01'` |
 | **`<=`** | Menor o igual que | `WHERE edad <= 36` |
 
-###🔍 Consultas con Filtros (DML)
-### 🔍 Tabla Comparativa de Filtros
-
+### 🔍 Consultas con Filtros (DML)
 Esta tabla resume las formas más comunes de filtrar datos en SQL para obtener resultados precisos.
 
 | Tipo de Filtro | Descripción Técnica | Ejemplo de Sentencia |
