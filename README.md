@@ -56,3 +56,7 @@ Borra filas específicas de una tabla según la condición indicada.
 DELETE FROM colaboradores 
 WHERE id = 1;
 ```
+
+### 🔍 Filtrado y Control de Resultados
+|a|b|c|
+-1|2|3
