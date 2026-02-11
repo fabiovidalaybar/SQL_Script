@@ -79,3 +79,12 @@ Esta tabla resume las formas más comunes de filtrar datos en SQL para obtener r
 | **Lista** | Compara el campo contra varios valores posibles. | `WHERE id IN (1, 5, 10)` |
 | **Nulidad** | Filtra registros que tienen campos vacíos. | `WHERE email IS NULL` |
 | **Múltiple** | Combina dos o más condiciones obligatorias. | `WHERE cargo = 'Admin' AND id > 5` |
+
+Ejemplo**
+18. Uso de IN (Filtro por Lista)
+Es mucho más eficiente que usar muchos OR. Se usa para buscar registros que coincidan con cualquiera de los elementos de una lista.
+```powershell
+-- Selecciona colaboradores que trabajen en cualquiera de estas empresas
+SELECT * FROM colaboradores 
+WHERE empresa IN ('Vedata', 'Aurys', 'MFS');
+```
