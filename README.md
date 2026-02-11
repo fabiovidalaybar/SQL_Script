@@ -83,7 +83,7 @@ Esta tabla resume las formas más comunes de filtrar datos en SQL para obtener r
 Ejemplo**
 18. Uso de IN (Filtro por Lista)
 Es mucho más eficiente que usar muchos OR. Se usa para buscar registros que coincidan con cualquiera de los elementos de una lista.
-```powershell
+```sql
 -- Selecciona colaboradores que trabajen en cualquiera de estas empresas
 SELECT * FROM colaboradores 
 WHERE empresa IN ('Vedata', 'Aurys', 'MFS');
