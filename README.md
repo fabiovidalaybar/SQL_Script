@@ -3,12 +3,22 @@ Bienvenido a mi repositorio de documentación personal de SQL. Este espacio est�
 ### 🚀 Objetivo
 El propósito de este repositorio es servir como una bitácora técnica de aprendizaje y consulta rápida, documentando sentencias aplicables en entornos de bases de datos relacionales como MySQL.
 
-1. Crear una Base de Datos
+###Definición de estructura (DDL)
+Crear una Base de Datos
 Se utiliza para generar el contenedor principal donde residirán todas nuestras tablas y datos.
-```powershell
-CREATE DATABASE sistema_gestion;
+```sql
+CREATE DATABASE nombre_de_la_bd;
 ```
-2. Crear una Tabla
+Modificar Propiedades de la Base de Datos Se utiliza principalmente para cambiar el conjunto de caracteres (charset) o la colación (cómo se comparan los textos).
+```sql
+ALTER DATABASE nombre_de_tu_bd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+Eliminar una Base de Datos Borra la base de datos completa y todo su contenido de forma irreversible.
+```sql
+DROP DATABASE nombre_de_tu_bd;
+```
+Gestión de Tablas
+Crear una Tabla
 Define la estructura de una entidad, especificando los nombres de columna, el tipo de dato que almacenarán y sus restricciones (como llaves primarias).
 ```sql
 CREATE TABLE colaboradores (
@@ -18,7 +28,15 @@ CREATE TABLE colaboradores (
     fecha_ingreso DATE
 );
 ```
-3. Eliminar una Tabla
+Renombrar una Tabla: Cambia el nombre de una tabla existente sin perder los datos que contiene.
+```sql
+RENAME TABLE nombre_antiguo TO nombre_nuevo;
+```
+Vaciar una Tabla (TRUNCATE): A diferencia de DELETE, esta sentencia borra todos los datos de la tabla y reinicia los contadores (como el auto_increment), pero mantiene la estructura.
+```sql
+TRUNCATE TABLE usuarios;
+```
+Eliminar una Tabla
 Borra una tabla de forma permanente, incluyendo toda su estructura y los datos que contenía. Se debe usar con precaución.
 ```sql
 DROP TABLE colaboradores;
@@ -30,6 +48,16 @@ Permite agregar nuevas filas de información a una tabla existente. Es important
 ```sql
 INSERT INTO colaboradores (nombre, cargo, fecha_ingreso) 
 VALUES ('Juan Pérez', 'Administrador de Sistemas', '2024-01-15');
+```
+**Modificación de Columnas (ALTER TABLE)**:Aquí es donde ajustamos el diseño de una tabla que ya ha sido creada.
+
+Agregar una nueva Columna Añade un campo adicional a una tabla existente.
+```sql
+ALTER TABLE usuarios ADD COLUMN correo VARCHAR(100);
+```
+**Modificar el Tipo de Dato de una Columna** Cambia las propiedades de una columna (por ejemplo, aumentar el límite de caracteres).
+```sql
+ALTER TABLE usuarios MODIFY COLUMN nombre VARCHAR(150) NOT NULL;
 ```
 
 ### 5. Consultar Datos (Básico)
