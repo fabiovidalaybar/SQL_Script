@@ -13,7 +13,9 @@ Modificar Propiedades de la Base de Datos Se utiliza principalmente para cambiar
 ```sql
 ALTER DATABASE nombre_de_tu_bd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
-Eliminar una Base de Datos Borra la base de datos completa y todo su contenido de forma irreversible.
+- **📝 Nota sobre el Renombrado de Bases de Datos
+Importante: En MySQL no existe una sentencia directa como RENAME DATABASE. Para cambiar el nombre de una base de datos, la práctica estándar es exportar los datos (dump), crear una nueva base de datos con el nombre deseado e importar los datos en ella. Esto se hace para proteger la integridad de los esquemas y las conexiones activas.
+Eliminar una Base de Datos Borra la base de datos completa y todo su contenido de forma irreversible.**
 ```sql
 DROP DATABASE nombre_de_tu_bd;
 ```
@@ -59,7 +61,14 @@ ALTER TABLE usuarios ADD COLUMN correo VARCHAR(100);
 ```sql
 ALTER TABLE usuarios MODIFY COLUMN nombre VARCHAR(150) NOT NULL;
 ```
-
+Renombrar una Columna Cambia el nombre de un campo específico.
+```sql
+ALTER TABLE usuarios CHANGE COLUMN nombre nombre_completo VARCHAR(150);
+```
+**Eliminar una Columna** Quita permanentemente un campo y todos los datos que contenía de la tabla.
+```sql
+ALTER TABLE usuarios DROP COLUMN correo;
+```
 ### 5. Consultar Datos (Básico)
 Recupera información de una tabla. El uso del asterisco * indica que queremos traer todas las columnas disponibles
 ```sql
