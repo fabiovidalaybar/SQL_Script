@@ -3,6 +3,13 @@ Bienvenido a mi repositorio de documentación personal de SQL. Este espacio est�
 ### 🚀 Objetivo
 El propósito de este repositorio es servir como una bitácora técnica de aprendizaje y consulta rápida, documentando sentencias aplicables en entornos de bases de datos relacionales como MySQL.
 
+## 📖 Índice de Contenidos
+1. [🏗️ Definición de Estructura (DDL)](#️-definición-de-estructura-ddl)
+2. [✍️ Manipulación de Datos (DML)](#️-manipulación-de-datos-dml)
+3. [🔍 Filtros y Operadores](#-filtros-y-operadores)
+4. [📑 Tabla Comparativa de Filtros](#-tabla-comparativa-de-filtros)
+5. [📊 Funciones de Agregación](#-funciones-de-agregación)
+
 1. Crear una Base de Datos
 Se utiliza para generar el contenedor principal donde residirán todas nuestras tablas y datos.
 ```powershell
