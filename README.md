@@ -58,7 +58,11 @@ WHERE id = 1;
 ```
 
 ### 🔍 Filtrado y Control de Resultados
-| Columna 1 | Columna 2 | Columna 3 |
-|-----------|-----------|-----------|
-| Dato A    | Dato B    | Dato C    |
-| Dato D    | Dato E    | Dato F    |
+| Operador | Descripción | Ejemplo de Uso |
+| :--- | :--- | :--- |
+| **`=`** | Igual a | `WHERE nombre = 'Christian'` |
+| **`<>`** o **`!=`** | Diferente de | `WHERE empresa != 'Vedata'` |
+| **`>`** | Mayor que | `WHERE id > 10` |
+| **`<`** | Menor que | `WHERE precio < 5000` |
+| **`>=`** | Mayor o igual que | `WHERE fecha >= '2026-01-01'` |
+| **`<=`** | Menor o igual que | `WHERE edad <= 36` |
