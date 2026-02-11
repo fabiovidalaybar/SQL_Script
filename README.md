@@ -58,5 +58,5 @@ WHERE id = 1;
 ```
 
 ### 🔍 Filtrado y Control de Resultados
-(|) a| b| c|
-(-) 1| 2| 3
+( | ) a ( | ) b| c|
+( - ) 1 ( | ) 2| 3
