@@ -66,3 +66,18 @@ WHERE id = 1;
 | **`<`** | Menor que | `WHERE precio < 5000` |
 | **`>=`** | Mayor o igual que | `WHERE fecha >= '2026-01-01'` |
 | **`<=`** | Menor o igual que | `WHERE edad <= 36` |
+
+###🔍 Consultas con Filtros (DML)
+### 🔍 Tabla Comparativa de Filtros
+
+Esta tabla resume las formas más comunes de filtrar datos en SQL para obtener resultados precisos.
+
+| Tipo de Filtro | Descripción Técnica | Ejemplo de Sentencia |
+| :--- | :--- | :--- |
+| **Exacto** | Busca una coincidencia total con el valor. | `WHERE ciudad = 'Santiago'` |
+| **Excluyente** | Trae todo excepto lo que coincida con el valor. | `WHERE estado != 'Inactivo'` |
+| **Rango** | Filtra valores dentro de un límite (min y max). | `WHERE edad BETWEEN 18 AND 36` |
+| **Patrón** | Busca textos que contengan una parte específica. | `WHERE nombre LIKE 'Tif%'` |
+| **Lista** | Compara el campo contra varios valores posibles. | `WHERE id IN (1, 5, 10)` |
+| **Nulidad** | Filtra registros que tienen campos vacíos. | `WHERE email IS NULL` |
+| **Múltiple** | Combina dos o más condiciones obligatorias. | `WHERE cargo = 'Admin' AND id > 5` |
