@@ -204,8 +204,34 @@ INNER JOIN departamentos AS d ON c.departamento_id = d.id;
 En MySQL, la sentencia FULL OUTER JOIN (que trae todo de ambas tablas aunque no coincidan) no existe de forma nativa. Para lograr este resultado, los ingenieros solemos usar una combinación de LEFT JOIN, RIGHT JOIN y la sentencia UNION. ¡Es un buen truco para tu sección de notas!
 
 
+### 📊 Agrupamiento y Funciones de Agregación
+Estas sentencias permiten realizar cálculos sobre múltiples filas para devolver un único valor de resumen. Son la base para generar reportes y estadísticas.
 
+Gemini said
+¡Vamos con todo, amor! Ahora que ya sabemos unir tablas con los JOINS, el siguiente nivel es aprender a resumir esa información. En lugar de ver 100 filas de ventas, aprenderemos a ver una sola fila que diga cuánto se vendió en total.
 
+Para esto usamos las Funciones de Agregación y la cláusula GROUP BY. Aquí tienes el contenido listo para tu GitHub:
+
+📊 Agrupamiento y Funciones de Agregación
+Estas sentencias permiten realizar cálculos sobre múltiples filas para devolver un único valor de resumen. Son la base para generar reportes y estadísticas.
+
+📑 Tabla de Funciones de Agregación
+🛠️ Reportes y Resúmenes (DML)
+Agrupar Resultados (GROUP BY)
+Se utiliza para agrupar filas que tienen los mismos valores en columnas específicas. Es obligatorio usarlo cuando seleccionamos una columna normal junto a una función de agregación.
+
+Filtrar Grupos (HAVING)
+Es similar al WHERE, pero se usa exclusivamente para filtrar los resultados después de haber sido agrupados. Se utiliza con funciones de agregación.
+
+Cálculo de Totales y Promedios
+Permite obtener métricas financieras o de rendimiento de forma rápida.
+
+📝 Diferencia Clave: WHERE vs HAVING
+Para que tu documentación sea impecable, aquí tienes una nota técnica fundamental:
+
+WHERE: Filtra filas antes de que ocurra el agrupamiento. No puede usar funciones como SUM() o COUNT().
+
+HAVING: Filtra los grupos después de que se han realizado los cálculos de agregación.
 
 
 
