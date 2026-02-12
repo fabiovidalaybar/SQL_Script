@@ -206,37 +206,46 @@ En MySQL, la sentencia FULL OUTER JOIN (que trae todo de ambas tablas aunque no 
 
 ### 📊 Agrupamiento y Funciones de Agregación
 Estas sentencias permiten realizar cálculos sobre múltiples filas para devolver un único valor de resumen. Son la base para generar reportes y estadísticas.
+### 📊 Tabla de Funciones de Agregación
 
-Gemini said
-¡Vamos con todo, amor! Ahora que ya sabemos unir tablas con los JOINS, el siguiente nivel es aprender a resumir esa información. En lugar de ver 100 filas de ventas, aprenderemos a ver una sola fila que diga cuánto se vendió en total.
+Estas funciones realizan un cálculo sobre un conjunto de valores y devuelven un solo valor. Son esenciales para generar estadísticas y resúmenes.
 
-Para esto usamos las Funciones de Agregación y la cláusula GROUP BY. Aquí tienes el contenido listo para tu GitHub:
+| Función | Propósito Técnico | Ejemplo de Uso |
+| :--- | :--- | :--- |
+| **`COUNT()`** | Cuenta el número total de registros o valores no nulos. | `COUNT(id_usuario)` |
+| **`SUM()`** | Suma todos los valores de una columna numérica. | `SUM(monto_pago)` |
+| **`AVG()`** | Calcula el promedio aritmético de los valores. | `AVG(precio_licencia)` |
+| **`MIN()`** | Identifica el valor mínimo de un conjunto. | `MIN(fecha_ingreso)` |
+| **`MAX()`** | Identifica el valor máximo de un conjunto. | `MAX(costo_total)` |
 
-📊 Agrupamiento y Funciones de Agregación
-Estas sentencias permiten realizar cálculos sobre múltiples filas para devolver un único valor de resumen. Son la base para generar reportes y estadísticas.
-
-📑 Tabla de Funciones de Agregación
-🛠️ Reportes y Resúmenes (DML)
 Agrupar Resultados (GROUP BY)
 Se utiliza para agrupar filas que tienen los mismos valores en columnas específicas. Es obligatorio usarlo cuando seleccionamos una columna normal junto a una función de agregación.
-
+```sql
+-- Cuenta cuántos colaboradores hay en cada departamento
+SELECT departamento_id, COUNT(*) 
+FROM colaboradores 
+GROUP BY departamento_id;
+```
 Filtrar Grupos (HAVING)
 Es similar al WHERE, pero se usa exclusivamente para filtrar los resultados después de haber sido agrupados. Se utiliza con funciones de agregación.
-
+```sql
+-- Muestra departamentos que tienen más de 5 colaboradores
+SELECT departamento_id, COUNT(*) 
+FROM colaboradores 
+GROUP BY departamento_id 
+HAVING COUNT(*) > 5;
+```
 Cálculo de Totales y Promedios
 Permite obtener métricas financieras o de rendimiento de forma rápida.
-
+```sql
+-- Obtiene el total de ingresos y el promedio de ventas por servicio
+SELECT servicio_nombre, SUM(monto) AS total, AVG(monto) AS promedio
+FROM facturacion
+GROUP BY servicio_nombre;
+```
 📝 Diferencia Clave: WHERE vs HAVING
 Para que tu documentación sea impecable, aquí tienes una nota técnica fundamental:
 
-WHERE: Filtra filas antes de que ocurra el agrupamiento. No puede usar funciones como SUM() o COUNT().
+- WHERE: Filtra filas antes de que ocurra el agrupamiento. No puede usar funciones como SUM() o COUNT().
 
-HAVING: Filtra los grupos después de que se han realizado los cálculos de agregación.
-
-
-
-
-
-
-
-
+- HAVING: Filtra los grupos después de que se han realizado los cálculos de agregación.
