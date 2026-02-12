@@ -166,3 +166,51 @@ Es mucho más eficiente que usar muchos OR. Se usa para buscar registros que coi
 SELECT * FROM colaboradores 
 WHERE empresa IN ('Vedata', 'Aurys', 'MFS');
 ```
+** 🔗 Uniones entre Tablas (JOINS)**
+Los JOINS se utilizan para combinar filas de dos o más tablas basándose en una columna relacionada entre ellas (normalmente una Foreign Key). Es lo que permite, por ejemplo, unir un ID de cliente con su nombre real guardado en otra tabla.
+| Tipo de JOIN | Funcionamiento | Resultado |
+| :--- | :--- | :--- |
+| **INNER JOIN** | Devuelve solo las filas con coincidencias en ambas tablas. | Solo registros "con pareja". |
+| **LEFT JOIN** | Devuelve todas las filas de la tabla izquierda y las coincidencias de la derecha. | Todo lo de la izquierda + nulos a la derecha. |
+| **RIGHT JOIN** | Devuelve todas las filas de la tabla derecha y las coincidencias de la izquierda. | Todo lo de la derecha + nulos a la izquierda. |
+| **CROSS JOIN** | Combina cada fila de la primera tabla con todas las filas de la segunda. | Producto cartesiano (todas las combinaciones). |
+
+Unión Estricta (INNER JOIN)
+Es el más utilizado. Solo muestra los registros donde el valor del "puente" existe en ambas tablas. Si un dato no tiene pareja en la otra tabla, no aparece.
+```sql
+-- Trae el nombre del colaborador y el nombre de su departamento
+SELECT colaboradores.nombre, departamentos.nombre_depto
+FROM colaboradores
+INNER JOIN departamentos ON colaboradores.departamento_id = departamentos.id;
+```
+** Unión Prioritaria Izquierda (LEFT JOIN)**
+Asegura que no se pierda ningún dato de la tabla principal (la que va después del FROM). Si no hay coincidencia en la tabla de la derecha, mostrará NULL.
+```sql
+-- Trae TODOS los clientes y, si tienen, sus servicios contratados
+SELECT clientes.nombre, servicios_microsoft.nombre_servicio
+FROM clientes
+LEFT JOIN servicios_microsoft ON clientes.id = servicios_microsoft.cliente_id;
+```
+Unión con Alias de Tabla
+Cuando usamos JOINS, los nombres de las tablas pueden ser largos. Usamos alias (letras cortas) para que el código sea más limpio y fácil de leer.
+```sql
+-- 'c' es el alias para colaboradores y 'd' para departamentos
+SELECT c.nombre, d.nombre_depto
+FROM colaboradores AS c
+INNER JOIN departamentos AS d ON c.departamento_id = d.id;
+```
+
+- 📝 Nota sobre FULL OUTER JOIN
+En MySQL, la sentencia FULL OUTER JOIN (que trae todo de ambas tablas aunque no coincidan) no existe de forma nativa. Para lograr este resultado, los ingenieros solemos usar una combinación de LEFT JOIN, RIGHT JOIN y la sentencia UNION. ¡Es un buen truco para tu sección de notas!
+
+
+
+
+
+
+
+
+
+
+
+
